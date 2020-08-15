@@ -21,10 +21,9 @@ function Calculate() {
   fetch(`https://v6.exchangerate-api.com/v6/9a9f8d425a73280170c37c31/latest/${currencyOne}`)
     .then(res => res.json())
     .then(data => {
-      // console.log(data);
       const rate = data.conversion_rates[currencyTwo];
 
-      rateEl.innerText = `1 ${currencyOne} = ${rate} ${currencyTwo}`;
+      rateEl.innerText = `1 ${currencyOne} = ${rate.toFixed(2)} ${currencyTwo}`;
 
       numberElTwo.value = (numberElOne.value * rate).toFixed(2);
     });
